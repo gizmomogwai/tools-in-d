@@ -3,7 +3,27 @@ description "A multifunction dlang program to collect small utilities."
 authors "Christian Köstlin"
 copyright "Copyright © 2017, Christian Köstlin"
 license "MIT"
-dependency "unit-threaded" version="~>0.7.4"
-dependency "dime" version="~master"
-dependency "dir" version="~master"
-dependency "zen" version="~master"
+
+dependency "dime" version="==1.0.0"
+subConfiguration "dime" "library"
+
+dependency "dir" version="==1.0.0"
+subConfiguration "dir" "library"
+
+dependency "zen" version="==1.0.0"
+subConfiguration "zen" "library"
+
+configuration "application" {
+  targetType "executable"
+
+  mainSourceFile "source/app.d"
+}
+
+configuration "unittest" {
+  targetType "executable"
+
+  dependency "unit-threaded" version="==0.7.4"
+  preBuildCommands "dub run unit-threaded -c gen_ut_main -- -f gen/ut.d"
+  mainSourceFile "gen/ut.d"
+  excludedSourceFiles "source/app.d"
+}
