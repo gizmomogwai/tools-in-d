@@ -1,0 +1,13 @@
+{
+	"fileVersion": 1,
+	"versions": {
+		"consoled": "1.0.4",
+		"dime": "~master",
+		"dir": "~master",
+		"dlibgit": "0.25.1",
+		"libgit2": "0.25.1",
+		"pc4d": "~master",
+		"unit-threaded": "0.7.4",
+		"zen": "~master"
+	}
+}
