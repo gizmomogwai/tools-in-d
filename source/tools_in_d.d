@@ -38,7 +38,7 @@ return executables ~ new %2$sExecutable();
 int toolsInD(string[] args) {
   auto executables =
     addExe!("dime,time").
-    addExe!("dir").
+    addExe!("dir,ls").
     addExe!("zen")
     ;
 
